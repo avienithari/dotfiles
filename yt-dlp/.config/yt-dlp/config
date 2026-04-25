@@ -1,0 +1,3 @@
+--output "~/Downloads/%(title)s.%(ext)s"
+--embed-metadata
+--embed-thumbnail
