@@ -1,0 +1,14 @@
+[user]
+  name = avienithari
+  email = 125766902+avienithari@users.noreply.github.com
+  signingkey = ~/.ssh/id_avien_sign.pub
+[core]
+  excludesfile = ~/.gitignore_global
+[commit]
+	gpgsign = true
+[gpg]
+  format = ssh
+[init]
+	defaultBranch = master
+[pull]
+	rebase = true
