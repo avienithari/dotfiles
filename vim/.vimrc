@@ -18,7 +18,16 @@ set termguicolors
 set hlsearch
 set incsearch
 
-colorscheme elflord
+colorscheme habamax
 
 nnoremap :W :w<CR>
 nnoremap <silent> <CR> :nohlsearch<CR>
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+let &t_SI = "\e[6 q"
+let &t_SR = "\e[4 q"
+let &t_EI = "\e[2 q"
