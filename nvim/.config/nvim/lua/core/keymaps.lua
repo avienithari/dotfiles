@@ -30,7 +30,7 @@ keymap.set("n", "<CR>", function()
   end
 end)
 
-vim.keymap.set("n", "<leader>tt", function()
+vim.keymap.set("n", "<leader>T", function()
   vim.cmd.new()
   vim.cmd.wincmd("J")
   vim.api.nvim_win_set_height(0, 12)
@@ -45,10 +45,6 @@ keymap.set("n", "<leader>G", "<cmd>Git<CR>", { noremap = true, silent = true })
 keymap.set("n", "<leader>U", ":UndotreeToggle<CR>")
 keymap.set("n", "<leader>n", ":ScribeToggle<CR>", { silent = true })
 keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-keymap.set("n", "<leader>D", function()
-  vim.cmd("tabnew")
-  vim.cmd("DBUI")
-end, { silent = true })
 
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
@@ -66,8 +62,4 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux display-popup -E sessionizer<CR>
 vim.keymap.set("n", "<leader>R", "<cmd>restart<CR>")
 
 vim.keymap.set("n", "<leader>d", "<cmd>diffthis<CR>")
-
--- plugin dev keymaps
--- keymap.set("n", ",r", ":lua R('scribe')<CR>", { silent = true }) -- reload scribe
--- keymap.set("n", ",t", ":PlenaryBustedFile %<CR>") -- test single file with with plenary
--- keymap.set("n", ",b", ":buffers<CR>", { silent = true }) -- list buffers
+vim.keymap.set("n", "<leader>D", "<cmd>diffoff!<CR>")
