@@ -38,6 +38,8 @@ return {
       capabilities = capabilities,
     })
 
+    vim.diagnostic.config({ virtual_text = true })
+
     vim.lsp.enable(servers)
 
     vim.lsp.config("lua_ls", {
@@ -69,6 +71,11 @@ return {
         keymap("n", "<leader>cx", vim.lsp.codelens.run, opts)
         keymap("n", "<leader>vd", vim.diagnostic.open_float, opts)
         keymap("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
+        keymap("n", "<leader>qd", function()
+          vim.diagnostic.setqflist()
+          vim.cmd("copen")
+        end, { buffer = args.buf, silent = true })
 
         vim.lsp.document_color.enable(false, { bufnr = args.buf })
       end,

@@ -21,6 +21,13 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "<CR>", "<Cmd>.cc<CR>", { buffer = true })
+  end,
+})
+
 local function set_filetype(pattern, filetype)
   vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = pattern,

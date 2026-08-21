@@ -22,4 +22,6 @@ vim.opt.iskeyword:append("-")
 vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.cursorline = true
+vim.opt.laststatus = 3
+vim.opt.autoread = true
 vim.opt.mouse = ""
