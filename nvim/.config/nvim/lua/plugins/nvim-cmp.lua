@@ -49,10 +49,4 @@ return {
       },
     })
   end,
-  require("cmp").setup.filetype({ "sql", "mysql", "plsql" }, {
-    sources = {
-      { name = "vim-dadbod-completion" },
-      { name = "buffer" },
-    },
-  }),
 }
