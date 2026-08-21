@@ -62,15 +62,15 @@ keymap("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", { silent = 
 keymap("n", "<leader>p", ":NoNeckPain<CR>", { silent = true })
 keymap("n", "<C-f>", "<cmd>silent !tmux display-popup -E sessionizer<CR>")
 
-local disable_map = "<Nop>"
+local unmap = vim.keymap.del
 
-keymap("n", "grn", disable_map)
-keymap("n", "grr", disable_map)
-keymap({ "n", "v" }, "gra", disable_map)
-keymap("n", "<C-w>d", disable_map)
-keymap("i", "<C-s>", disable_map)
-keymap("n", "gri", disable_map)
-keymap("n", "grt", disable_map)
-keymap("n", "grx", disable_map)
-keymap({ "n", "v" }, "gc", disable_map)
-keymap("n", "gcc", disable_map)
+unmap("n", "grn")
+unmap("n", "grr")
+unmap({ "n", "v" }, "gra")
+unmap("n", "<C-w>d")
+unmap("i", "<C-s>")
+unmap("n", "gri")
+unmap("n", "grt")
+unmap("n", "grx")
+unmap({ "n", "v" }, "gc")
+unmap("n", "gcc")
