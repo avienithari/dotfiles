@@ -1,28 +1,32 @@
 vim.g.mapleader = " "
 
-local keymap = vim.keymap
+local keymap = vim.keymap.set
 
-keymap.set("n", "x", '"_x')
+keymap("n", "x", '"_x')
+keymap("x", "<leader>p", '"_dP')
 
-keymap.set("c", "W", "w<CR>")
+keymap("c", "W", "w<CR>")
 
-keymap.set("n", "<C-d>", "<C-d>zz")
-keymap.set("n", "<C-u>", "<C-u>zz")
+keymap("n", "<C-d>", "<C-d>zz")
+keymap("n", "<C-u>", "<C-u>zz")
 
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap("v", "K", ":m '<-2<CR>gv=gv")
+keymap("v", "J", ":m '>+1<CR>gv=gv")
 
-keymap.set("x", "<leader>p", '"_dP')
+keymap("n", "<leader>to", ":tabnew<CR>")
+keymap("n", "<leader>tx", ":tabclose<CR>")
+keymap("n", "<left>", "gT")
+keymap("n", "<right>", "gt")
 
-keymap.set("n", "<leader>to", ":tabnew<CR>")
-keymap.set("n", "<leader>tx", ":tabclose<CR>")
-keymap.set("n", "<left>", "gT")
-keymap.set("n", "<right>", "gt")
+keymap("n", "<leader>R", "<cmd>restart<CR>")
 
-keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })
-keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
+keymap("n", "<leader>d", "<cmd>diffthis<CR>")
+keymap("n", "<leader>D", "<cmd>diffoff!<CR>")
 
-keymap.set("n", "<CR>", function()
+keymap("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })
+keymap("n", "<leader><leader>x", "<cmd>source %<CR>")
+
+keymap("n", "<CR>", function()
   if vim.opt.hlsearch:get() then
     vim.cmd.nohlsearch()
   else
@@ -30,7 +34,7 @@ keymap.set("n", "<CR>", function()
   end
 end)
 
-vim.keymap.set("n", "<leader>T", function()
+keymap("n", "<leader>T", function()
   vim.cmd.new()
   vim.cmd.wincmd("J")
   vim.api.nvim_win_set_height(0, 12)
@@ -38,37 +42,32 @@ vim.keymap.set("n", "<leader>T", function()
   vim.cmd.term()
 end)
 
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+keymap("t", "<esc><esc>", "<c-\\><c-n>")
 
-keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { noremap = true, silent = true })
-keymap.set("n", "<leader>G", "<cmd>Git<CR>", { noremap = true, silent = true })
-keymap.set("n", "<leader>U", ":UndotreeToggle<CR>")
-keymap.set("n", "<leader>n", ":ScribeToggle<CR>", { silent = true })
-keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+keymap("n", "<leader>L", "<cmd>Lazy<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>G", "<cmd>Git<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>U", ":UndotreeToggle<CR>")
+keymap("n", "<leader>n", ":ScribeToggle<CR>", { silent = true })
+keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+keymap("n", "<leader>sm", ":MaximizerToggle<CR>")
+keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+keymap("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
+keymap("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+keymap("v", "<leader>a", ":ScribeRange<CR>")
+keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { silent = true })
+keymap("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", { silent = true })
+keymap("n", "<leader>p", ":NoNeckPain<CR>", { silent = true })
+keymap("n", "<C-f>", "<cmd>silent !tmux display-popup -E sessionizer<CR>")
 
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
-keymap.set("v", "<leader>a", ":ScribeRange<CR>")
-keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { silent = true })
-keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", { silent = true })
-keymap.set("n", "<leader>p", ":NoNeckPain<CR>", { silent = true })
+local disable_map = "<Nop>"
 
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux display-popup -E sessionizer<CR>")
-
-vim.keymap.set("n", "<leader>R", "<cmd>restart<CR>")
-
-vim.keymap.set("n", "<leader>d", "<cmd>diffthis<CR>")
-vim.keymap.set("n", "<leader>D", "<cmd>diffoff!<CR>")
-
-vim.keymap.set("n", "grn", "<Nop>")
-vim.keymap.set("n", "grr", "<Nop>")
-vim.keymap.set({ "n", "v" }, "gra", "<Nop>")
-vim.keymap.set("n", "<C-w>d", "<Nop>")
-vim.keymap.set("i", "<C-s>", "<Nop>")
-vim.keymap.set("n", "gri", "<Nop>")
-vim.keymap.set("n", "grt", "<Nop>")
-vim.keymap.set("n", "grx", "<Nop>")
+keymap("n", "grn", disable_map)
+keymap("n", "grr", disable_map)
+keymap({ "n", "v" }, "gra", disable_map)
+keymap("n", "<C-w>d", disable_map)
+keymap("i", "<C-s>", disable_map)
+keymap("n", "gri", disable_map)
+keymap("n", "grt", disable_map)
+keymap("n", "grx", disable_map)
