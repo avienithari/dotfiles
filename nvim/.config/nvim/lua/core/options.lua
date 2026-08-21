@@ -5,6 +5,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.wrap = false
+vim.opt.linebreak = true
 vim.opt.scrolloff = 10
 vim.opt.colorcolumn = "80"
 vim.opt.signcolumn = "yes"
