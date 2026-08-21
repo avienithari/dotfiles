@@ -63,3 +63,9 @@ vim.keymap.set("n", "<leader>R", "<cmd>restart<CR>")
 
 vim.keymap.set("n", "<leader>d", "<cmd>diffthis<CR>")
 vim.keymap.set("n", "<leader>D", "<cmd>diffoff!<CR>")
+
+vim.keymap.set("n", "grn", "<Nop>")
+vim.keymap.set("n", "grr", "<Nop>")
+vim.keymap.set({ "n", "v" }, "gra", "<Nop>")
+vim.keymap.set("n", "<C-w>d", "<Nop>")
+vim.keymap.set("i", "<C-s>", "<Nop>")
