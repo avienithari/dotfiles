@@ -37,14 +37,18 @@ return {
 
     local on_attach = function(_, bufnr)
       local opts = { buffer = bufnr }
+      local keymap = vim.keymap.set
 
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-      vim.keymap.set("n", "<leader>rf", vim.lsp.buf.references, opts)
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-      vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
-      vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-      vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+      keymap("n", "gd", vim.lsp.buf.definition, opts)
+      keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
+      keymap("n", "<leader>rf", vim.lsp.buf.references, opts)
+      keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+      keymap("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
+      keymap("n", "<leader>ci", vim.lsp.buf.implementation, opts)
+      keymap("n", "<leader>gd", vim.lsp.buf.type_definition, opts)
+      keymap("n", "<leader>cx", vim.lsp.codelens.run, opts)
+      keymap("n", "<leader>vd", vim.diagnostic.open_float, opts)
+      keymap("i", "<C-h>", vim.lsp.buf.signature_help, opts)
     end
 
     for name, cfg in pairs(servers) do
