@@ -30,6 +30,7 @@ return {
       rust_analyzer = {},
       templ = {},
       ts_ls = {},
+      typos_lsp = {},
       vimls = {},
       zls = {},
     }
